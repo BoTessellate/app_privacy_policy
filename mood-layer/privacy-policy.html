@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mood Layer - Privacy Policy</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 24px 16px;
+            color: #222;
+            line-height: 1.6;
+            background: #fafafa;
+        }
+        h1 { font-size: 1.8em; margin-bottom: 4px; }
+        h2 { font-size: 1.3em; margin-top: 32px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+        .date { color: #666; font-size: 0.9em; margin-bottom: 24px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 6px; }
+        a { color: #4a6cf7; }
+        .highlight { background: #fff3cd; padding: 12px 16px; border-radius: 6px; margin: 16px 0; }
+    </style>
+</head>
+<body>
+    <h1>Privacy Policy</h1>
+    <p class="date">Effective date: August 25, 2026 | Version 1.0</p>
+
+    <p>The Mood Layer ("the app") is a personal emotion journal developed by <strong>Bits of Tessellate</strong>. It is built around one principle: <strong>your feelings are yours</strong>. The app has no accounts, no sign-up, no analytics, and no advertising. This policy explains where your data lives and the two strictly optional features that can move anything off your device.</p>
+
+    <div class="highlight">
+        <strong>Summary:</strong> Everything you record stays on your phone. There is no account and no server that holds your data. Nothing leaves your device unless you explicitly turn on one of two optional features — sharing a weekly summary with a trusted person (end-to-end encrypted) or crash reports (off by default, stripped of personal content). We don't sell data, don't run ads, and don't track you.
+    </div>
+
+    <h2>1. Data Stored on Your Device</h2>
+    <p>The app stores the following data locally, on your phone only:</p>
+    <ul>
+        <li><strong>Check-ins:</strong> the emotions you select, their intensities, and any notes you write.</li>
+        <li><strong>Settings:</strong> your preferences, such as reminders, reduced motion, and feature toggles.</li>
+    </ul>
+    <p>This data is kept in the app's private storage on your device. We cannot see it, and it is never uploaded, synced, or backed up to any server operated by us.</p>
+
+    <h2>2. What We Collect</h2>
+    <p><strong>Nothing, by default.</strong> The app requires no account, collects no analytics, sets no advertising identifiers, and sends no telemetry. If you never enable the optional features below, no data of any kind leaves your phone through the app.</p>
+
+    <h2>3. Optional: Sharing With Your Circle</h2>
+    <p>You may choose to pair with one trusted person and share a <strong>weekly summary</strong> with them. If you enable this:</p>
+    <ul>
+        <li>Only the gated weekly summary text is shared — the same text you could send through your phone's share sheet. Your individual check-ins and notes are never included.</li>
+        <li>The summary is <strong>end-to-end encrypted on your phone</strong> (using NaCl public-key encryption) so that only your paired person's device can read it. The relay server that passes the message along cannot decrypt it.</li>
+        <li>The relay is send-and-forget: it exists only to hand the sealed message from one phone to the other.</li>
+        <li>Delivery metadata (pairing identifiers, message timing, and encrypted message size) is technically visible to the relay infrastructure, as with any messaging system. The content is not.</li>
+    </ul>
+    <p>You can stop sharing at any time by unpairing in the app.</p>
+
+    <h2>4. Optional: Crash Reports</h2>
+    <p>The app can send anonymous crash reports to help us fix bugs. This is <strong>off by default</strong> and only ever enabled by you, through the toggle in Settings. If you enable it:</p>
+    <ul>
+        <li>A report carries the <em>shape</em> of a failure — the error type, message, stack trace, and screen names — never its content.</li>
+        <li>Your check-ins, notes, app state, and identity are never attached. User identifiers, IP-derived location, and request data are stripped before a report is sent, and IP addresses are not stored by our crash-reporting project.</li>
+        <li>Reports are processed by <strong>Sentry</strong>. <a href="https://sentry.io/privacy/">Sentry Privacy Policy</a></li>
+    </ul>
+    <p>You can turn crash reports off at any time in Settings.</p>
+
+    <h2>5. Notifications</h2>
+    <p>Reminders and circle-delivery notifications are generated <strong>locally on your device</strong>. The app uses no push-notification infrastructure; no notification content or token is sent to a server. A circle notification names who a summary arrived from, never what it says.</p>
+
+    <h2>6. Data Retention &amp; Deletion</h2>
+    <p>Because your data lives only on your phone, you are in full control of it:</p>
+    <ul>
+        <li>Deleting the app deletes all of your data with it.</li>
+        <li>Unpairing from your circle stops all sharing immediately.</li>
+        <li>We hold no copy of your journal, so there is nothing for us to retain or delete on your behalf.</li>
+    </ul>
+
+    <h2>7. Children's Privacy</h2>
+    <p>The Mood Layer does not knowingly collect personal data from anyone, including children. Since no data leaves the device by default, no children's data is collected within the meaning of COPPA (United States) or the DPDP Act 2023 (India).</p>
+
+    <h2>8. EEA/UK Residents (GDPR)</h2>
+    <p>The app processes your journal entirely on your device, which does not involve us processing your personal data. The two optional features are processed on the legal basis of your <strong>consent</strong>, given when you enable them and withdrawable at any time by disabling them:</p>
+    <ul>
+        <li><strong>Circle sharing</strong> — end-to-end encrypted; we cannot read the content.</li>
+        <li><strong>Crash reports</strong> — anonymized diagnostics, processed by Sentry (which may involve transfers outside the EEA under standard contractual clauses).</li>
+    </ul>
+    <p>To exercise any data-protection right or ask a question, contact <a href="mailto:privacy@tessellate.co.in">privacy@tessellate.co.in</a>. We will respond within 30 days.</p>
+
+    <h2>9. California Residents (CCPA/CPRA)</h2>
+    <ul>
+        <li><strong>We do not sell or share personal information</strong> and have not done so in the preceding 12 months.</li>
+        <li><strong>Categories collected:</strong> none by default; anonymized diagnostic information only if you opt in to crash reports.</li>
+        <li><strong>Right to non-discrimination:</strong> the app works identically whether or not you enable any optional feature.</li>
+    </ul>
+
+    <h2>10. Indian Residents (DPDP Act 2023)</h2>
+    <p><strong>Data Fiduciary:</strong> Bits of Tessellate, contactable at <a href="mailto:privacy@tessellate.co.in">privacy@tessellate.co.in</a>.</p>
+    <p><strong>Consent:</strong> the app collects no personal data by default. Enabling circle sharing or crash reports constitutes consent for those features alone, withdrawable at any time by turning them off.</p>
+    <p><strong>Grievance Officer:</strong></p>
+    <p>Name: Saptami<br>
+    Email: <a href="mailto:privacy@tessellate.co.in">privacy@tessellate.co.in</a><br>
+    Response time: Within 15 days of receiving a complaint.</p>
+
+    <h2>11. App Store Privacy Details</h2>
+    <p><strong>Tracking:</strong> The Mood Layer does not track you across other companies' apps or websites and does not use the IDFA or any advertising identifier.</p>
+    <p><strong>Data linked to you:</strong> None.</p>
+    <p><strong>Data not linked to you:</strong> Crash data (only if you opt in to crash reports).</p>
+    <p><strong>Data used to track you:</strong> None.</p>
+
+    <h2>12. Changes to This Policy</h2>
+    <p>We may update this policy from time to time. Changes will be posted on this page with an updated effective date and version number. If a change would ever move new data off your device, it will arrive as an off-by-default choice, not a silent update.</p>
+
+    <h2>13. Contact Us</h2>
+    <p>If you have questions about this privacy policy or your data, please contact us at:</p>
+    <p><strong>Publisher:</strong> Bits of Tessellate</p>
+    <p><strong>Email:</strong> <a href="mailto:privacy@tessellate.co.in">privacy@tessellate.co.in</a></p>
+</body>
+</html>
