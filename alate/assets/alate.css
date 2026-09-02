@@ -1,6 +1,7 @@
-/* Alate landing pages — shared styles.
+/* Alate pages — shared styles.
    Palette mirrors the app's design system (alate mobile/src/constants/theme.ts):
-   canvas #e6e4e9, primary #6a5f75, ink #2f2937. One face: Marcellus (OFL). */
+   canvas #e6e4e9, primary #6a5f75, ink #2f2937. One face, like the app: Marcellus
+   (OFL) carries headings AND body; hierarchy comes from size, colour and spacing. */
 
 @font-face {
   font-family: 'Marcellus';
@@ -24,7 +25,6 @@
   --radius: 20px;
   --radius-sm: 12px;
   --serif: 'Marcellus', Georgia, 'Times New Roman', serif;
-  --sans: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --shadow: 0 2px 14px rgba(47, 41, 55, 0.07);
 }
 
@@ -35,24 +35,26 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--sans);
-  line-height: 1.6;
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; }
-h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; }
+h1, h2, h3 { font-weight: 400; margin: 0; }
 p { margin: 0; }
 ul { margin: 0; padding: 0; list-style: none; }
+button { font-family: inherit; }
 
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
 /* ---------- Wordmark + nav ---------- */
 /* The wordmark is the app's own mark (assets/wordmark.svg, ink fill). */
 .wordmark { display: inline-block; line-height: 0; text-decoration: none; }
-.wordmark img { height: 44px; width: auto; display: block; }
-.foot .wordmark img { height: 34px; }
-button.pill { border: 0; font: inherit; font-size: 15px; cursor: pointer; }
-button.ghost { background: none; border: 0; border-bottom: 1px solid var(--line); font: inherit; cursor: pointer; }
+.wordmark img { height: 40px; width: auto; display: block; }
+.foot .wordmark img { height: 28px; }
+button.pill { border: 0; cursor: pointer; }
+button.ghost { background: none; border: 0; border-bottom: 1px solid var(--line); cursor: pointer; }
 .nav {
   position: sticky; top: 0; z-index: 10;
   background: rgba(230, 228, 233, 0.85);
@@ -62,11 +64,11 @@ button.ghost { background: none; border: 0; border-bottom: 1px solid var(--line)
 }
 .nav .wrap {
   display: flex; align-items: center; justify-content: space-between;
-  height: 72px;
+  height: 68px;
 }
-.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links { display: flex; gap: 26px; align-items: center; }
 .nav-links a {
-  font-size: 14px; letter-spacing: 0.04em; text-decoration: none; color: var(--muted);
+  font-size: 14px; letter-spacing: 0.03em; text-decoration: none; color: var(--muted);
   white-space: nowrap;
 }
 .nav-links a[aria-current="page"] { color: var(--ink); }
@@ -77,64 +79,8 @@ button.ghost { background: none; border: 0; border-bottom: 1px solid var(--line)
 }
 @media (max-width: 560px) {
   .nav-links a:not(.pill) { display: none; }
-  .wordmark img { height: 36px; }
+  .wordmark img { height: 32px; }
 }
-
-/* ---------- Contact sheet (replaces bare mailto: CTAs) ---------- */
-dialog.contact {
-  border: 0;
-  border-radius: var(--radius);
-  padding: 0;
-  width: min(92vw, 480px);
-  background: var(--glass);
-  color: var(--ink);
-  box-shadow: 0 24px 60px rgba(47, 41, 55, 0.25);
-}
-dialog.contact::backdrop { background: rgba(47, 41, 55, 0.45); }
-dialog.contact form { padding: 32px 32px 28px; }
-dialog.contact h2 { font-size: 26px; margin: 0 0 10px; }
-dialog.contact p { font-size: 15px; color: var(--muted); }
-dialog.contact .addr {
-  margin: 20px 0 14px;
-  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
-  background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm);
-  padding: 10px 10px 10px 16px;
-}
-dialog.contact .addr code { font-family: var(--sans); font-size: 16px; color: var(--ink); flex: 1; word-break: break-all; }
-dialog.contact .addr .pill { padding: 9px 16px; font-size: 14px; }
-dialog.contact .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 18px; }
-dialog.contact .row a { color: var(--ink); }
-
-/* ---------- Document pages (support, privacy, deletion, opt-out) ---------- */
-.doc { max-width: 760px; margin: 0 auto; padding: 56px 24px 72px; }
-.doc h1 { font-size: clamp(32px, 4.5vw, 44px); line-height: 1.15; margin: 0 0 10px; text-wrap: balance; }
-.doc .date { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin: 0 0 32px; }
-.doc h2 { font-size: 26px; line-height: 1.25; margin: 48px 0 12px; }
-.doc h3 { font-size: 20px; margin: 28px 0 8px; }
-.doc p { margin: 0 0 14px; font-size: 16px; color: var(--ink-soft); }
-.doc p.lead { font-size: 19px; color: var(--muted); }
-.doc ul, .doc ol { margin: 0 0 16px; padding-left: 22px; }
-.doc ul { list-style: disc; }
-.doc ol { list-style: decimal; }
-.doc li { margin-bottom: 8px; font-size: 16px; color: var(--ink-soft); }
-.doc li::marker { color: var(--primary); }
-.doc a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
-.doc a:hover { text-decoration-color: var(--ink); }
-.doc strong { color: var(--ink); font-weight: 600; }
-.doc code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; background: rgba(255,255,255,0.6); border: 1px solid var(--line); padding: 1px 6px; border-radius: 6px; }
-.callout {
-  background: var(--glass);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px 26px;
-  margin: 22px 0;
-}
-.callout.dark { background: var(--ink); border-color: var(--ink); }
-.callout.dark, .callout.dark p, .callout.dark li, .callout.dark strong { color: var(--on-dark); }
-.callout.dark strong { color: #fff; }
-.callout.dark a { color: #fff; }
-.callout > :last-child { margin-bottom: 0; }
-.callout p strong:first-child { display: block; margin-bottom: 4px; font-family: var(--serif); font-weight: 400; font-size: 18px; }
 
 /* ---------- Buttons ---------- */
 .pill {
@@ -142,8 +88,8 @@ dialog.contact .row a { color: var(--ink); }
   background: var(--primary);
   color: #fff;
   border-radius: 9999px;
-  padding: 14px 30px;
-  font-size: 15px;
+  padding: 12px 26px;
+  font-size: 14px;
   letter-spacing: 0.02em;
   text-decoration: none;
   transition: background 120ms ease;
@@ -154,8 +100,8 @@ dialog.contact .row a { color: var(--ink); }
   display: inline-block;
   color: var(--ink);
   text-decoration: none;
-  padding: 14px 6px;
-  font-size: 15px;
+  padding: 12px 4px;
+  font-size: 14px;
   border-bottom: 1px solid var(--line);
 }
 .ghost:hover { border-color: var(--ink); }
@@ -164,18 +110,18 @@ dialog.contact .row a { color: var(--ink); }
 
 /* ---------- Type ---------- */
 .eyebrow {
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
   margin: 0 0 14px;
 }
-.section { padding: 88px 0 0; }
-.section-title { font-size: clamp(28px, 3.6vw, 38px); line-height: 1.2; text-wrap: balance; max-width: 22em; }
-.section-lead { margin-top: 14px; font-size: 17px; color: var(--muted); max-width: 40em; }
+.section { padding: 80px 0 0; }
+.section-title { font-size: clamp(26px, 3.2vw, 34px); line-height: 1.2; text-wrap: balance; max-width: 22em; }
+.section-lead { margin-top: 12px; font-size: 16px; color: var(--muted); max-width: 40em; }
 
 /* ---------- Hero ---------- */
-.hero { padding: 72px 0 24px; }
+.hero { padding: 64px 0 24px; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -183,19 +129,19 @@ dialog.contact .row a { color: var(--ink); }
   align-items: center;
 }
 .hero h1 {
-  font-size: clamp(38px, 5.4vw, 60px);
+  font-size: clamp(34px, 4.8vw, 54px);
   line-height: 1.1;
   text-wrap: balance;
-  margin: 0 0 20px;
+  margin: 0 0 18px;
 }
 .hero .sub {
-  font-size: 19px;
+  font-size: 17px;
   color: var(--muted);
   max-width: 32em;
-  margin: 0 0 32px;
+  margin: 0 0 28px;
 }
 @media (max-width: 860px) {
-  .hero { padding-top: 48px; }
+  .hero { padding-top: 40px; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 
@@ -208,11 +154,11 @@ dialog.contact .row a { color: var(--ink); }
   box-shadow: 0 18px 50px rgba(47, 41, 55, 0.12);
   max-width: 400px;
   margin: 0 auto;
-  font-size: 14px;
+  font-size: 13px;
 }
 .mock .mock-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
-.mock .mock-brand { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-.mock .mock-title { font-family: var(--serif); font-size: 20px; line-height: 1.25; margin: 0 0 4px; }
+.mock .mock-brand { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.mock .mock-title { font-size: 19px; line-height: 1.25; margin: 0 0 4px; }
 .mock .mock-price { color: var(--muted); }
 .mock .mock-verdict {
   margin-top: 16px;
@@ -222,7 +168,7 @@ dialog.contact .row a { color: var(--ink); }
   padding: 14px 16px;
   display: flex; justify-content: space-between; align-items: center;
 }
-.mock .mock-verdict .big { font-family: var(--serif); font-size: 22px; color: #fff; }
+.mock .mock-verdict .big { font-size: 21px; color: #fff; }
 .mock .mock-verdict .conf { font-size: 12px; color: var(--on-dark-muted); }
 .mock .mock-rows { margin-top: 14px; display: grid; gap: 8px; }
 .mock .mock-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--line); }
@@ -260,22 +206,22 @@ dialog.contact .row a { color: var(--ink); }
 
 /* ---------- Dark band ---------- */
 .band {
-  margin-top: 72px;
+  margin-top: 64px;
   background: var(--ink);
   color: var(--on-dark);
-  padding: 64px 0;
+  padding: 60px 0;
 }
-.band h2 { font-size: clamp(26px, 3.2vw, 34px); color: #fff; line-height: 1.2; text-wrap: balance; }
+.band h2 { font-size: clamp(24px, 3vw, 32px); color: #fff; line-height: 1.2; text-wrap: balance; }
 .band-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
 .band ul { display: grid; gap: 12px; }
-.band li { font-size: 16px; color: var(--on-dark-muted); padding-left: 24px; position: relative; }
+.band li { font-size: 15px; color: var(--on-dark-muted); padding-left: 24px; position: relative; }
 .band li::before { content: '—'; position: absolute; left: 0; color: #8d8399; }
-.band .kicker { margin-top: 24px; font-size: 17px; color: #fff; max-width: 34em; }
+.band .kicker { margin-top: 22px; font-size: 16px; color: #fff; max-width: 34em; }
 @media (max-width: 760px) { .band-grid { grid-template-columns: 1fr; gap: 24px; } }
 
 /* ---------- Feature grid ---------- */
 .grid {
-  margin-top: 36px;
+  margin-top: 32px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
@@ -283,11 +229,11 @@ dialog.contact .row a { color: var(--ink); }
 .card {
   background: var(--glass);
   border-radius: var(--radius);
-  padding: 28px 26px;
+  padding: 26px 24px;
   box-shadow: var(--shadow);
 }
-.card h3 { font-size: 21px; line-height: 1.3; margin: 0 0 8px; }
-.card p { font-size: 15px; color: var(--muted); }
+.card h3 { font-size: 20px; line-height: 1.3; margin: 0 0 8px; }
+.card p { font-size: 14px; color: var(--muted); }
 .glyph {
   width: 40px; height: 40px;
   border-radius: 12px;
@@ -300,108 +246,162 @@ dialog.contact .row a { color: var(--ink); }
 @media (max-width: 580px) { .grid { grid-template-columns: 1fr; } }
 
 /* ---------- Two-up ---------- */
-.two-up { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.two-up { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 @media (max-width: 760px) { .two-up { grid-template-columns: 1fr; } }
 .card.tall { display: flex; flex-direction: column; gap: 16px; }
 .card .mock { margin: 0; max-width: none; box-shadow: none; }
 
 /* ---------- Steps ---------- */
-.steps { margin-top: 36px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
+.steps { margin-top: 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
 .step {
   background: var(--glass);
   border-radius: var(--radius);
-  padding: 28px 26px 28px;
+  padding: 26px 24px;
   box-shadow: var(--shadow);
   counter-increment: step;
 }
 .step::before {
   content: counter(step);
   display: flex; align-items: center; justify-content: center;
-  width: 32px; height: 32px;
+  width: 30px; height: 30px;
   border-radius: 9999px;
   background: var(--primary);
   color: #fff;
-  font-size: 14px;
-  margin-bottom: 18px;
+  font-size: 13px;
+  margin-bottom: 16px;
 }
-.step h3 { font-size: 20px; margin: 0 0 6px; }
-.step p { font-size: 15px; color: var(--muted); }
+.step h3 { font-size: 19px; margin: 0 0 6px; }
+.step p { font-size: 14px; color: var(--muted); }
 @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
 
 /* ---------- Control list ---------- */
-.controls { margin-top: 36px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 40px; }
+.controls { margin-top: 32px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 40px; }
 .controls li { padding: 16px 0; border-bottom: 1px solid var(--line); }
-.controls li strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 18px; margin-bottom: 2px; }
-.controls li span { font-size: 15px; color: var(--muted); }
+.controls li strong { display: block; font-weight: 400; font-size: 18px; margin-bottom: 2px; }
+.controls li span { font-size: 14px; color: var(--muted); }
 @media (max-width: 700px) { .controls { grid-template-columns: 1fr; } }
 
 /* ---------- Trust ---------- */
 .trust {
-  margin-top: 88px;
+  margin-top: 80px;
   background: var(--glass);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 44px 40px;
+  padding: 40px 40px;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 32px;
   align-items: center;
 }
-.trust .lead { font-family: var(--serif); font-size: clamp(24px, 3vw, 30px); line-height: 1.3; text-wrap: balance; }
-.trust .small { margin-top: 10px; font-size: 15px; color: var(--muted); }
+.trust .lead { font-size: clamp(22px, 2.6vw, 27px); line-height: 1.3; text-wrap: balance; }
+.trust .small { margin-top: 10px; font-size: 14px; color: var(--muted); }
 .trust ul { display: grid; gap: 10px; }
-.trust li { font-size: 15px; color: var(--ink-soft); padding-left: 24px; position: relative; }
+.trust li { font-size: 14px; color: var(--ink-soft); padding-left: 24px; position: relative; }
 .trust li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); }
-@media (max-width: 760px) { .trust { grid-template-columns: 1fr; padding: 32px 26px; } }
+@media (max-width: 760px) { .trust { grid-template-columns: 1fr; padding: 30px 24px; } }
 
 /* ---------- FAQ ---------- */
-.faq { margin-top: 36px; border-top: 1px solid var(--line); }
+.faq { margin-top: 32px; border-top: 1px solid var(--line); }
 .faq details { border-bottom: 1px solid var(--line); }
 .faq summary {
   cursor: pointer;
   list-style: none;
-  padding: 20px 40px 20px 0;
-  font-family: var(--serif);
-  font-size: 19px;
+  padding: 18px 40px 18px 0;
+  font-size: 18px;
   position: relative;
 }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
   content: '+';
-  position: absolute; right: 8px; top: 18px;
-  font-family: var(--sans); font-size: 22px; color: var(--muted);
+  position: absolute; right: 8px; top: 16px;
+  font-size: 22px; color: var(--muted);
 }
 .faq details[open] summary::after { content: '–'; }
-.faq details p { padding: 0 0 22px; font-size: 15px; color: var(--muted); max-width: 46em; }
+.faq details p { padding: 0 0 20px; font-size: 14px; color: var(--muted); max-width: 46em; }
 
 /* ---------- CTA band ---------- */
 .cta-band {
-  margin-top: 88px;
+  margin-top: 80px;
   background: var(--ink);
   color: var(--on-dark);
   border-radius: var(--radius);
-  padding: 56px 48px;
+  padding: 52px 48px;
   text-align: center;
 }
-.cta-band h2 { font-size: clamp(26px, 3.4vw, 36px); color: #fff; text-wrap: balance; }
-.cta-band p { margin: 14px auto 28px; max-width: 36em; color: var(--on-dark-muted); font-size: 16px; }
+.cta-band h2 { font-size: clamp(24px, 3.2vw, 34px); color: #fff; text-wrap: balance; }
+.cta-band p { margin: 12px auto 26px; max-width: 36em; color: var(--on-dark-muted); font-size: 15px; }
 .cta-band .pill { background: #fff; color: var(--ink); }
 .cta-band .pill:hover { background: var(--on-dark); }
-@media (max-width: 640px) { .cta-band { padding: 40px 24px; } }
+@media (max-width: 640px) { .cta-band { padding: 36px 24px; } }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (one row) ---------- */
 .foot {
-  margin-top: 72px;
+  margin-top: 64px;
   border-top: 1px solid var(--line);
-  padding: 40px 0 56px;
-  font-size: 14px;
+  padding: 28px 0 40px;
+  font-size: 13px;
   color: var(--muted);
 }
-.foot .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
-.foot .wordmark { font-size: 26px; }
-.foot .tag { margin-top: 12px; max-width: 26em; }
-.foot .foot-h { margin: 0 0 12px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
-.foot ul { display: grid; gap: 8px; }
+.foot .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px; }
+.foot ul { display: flex; flex-wrap: wrap; gap: 6px 22px; }
 .foot a { text-decoration: none; }
 .foot a:hover { color: var(--ink); text-decoration: underline; }
-@media (max-width: 700px) { .foot .wrap { grid-template-columns: 1fr; gap: 24px; } }
+.foot .copy { margin: 0; }
+@media (max-width: 640px) { .foot .wrap { flex-direction: column; align-items: flex-start; } }
+
+/* ---------- Contact sheet (replaces bare mailto: CTAs) ---------- */
+dialog.contact {
+  border: 0;
+  border-radius: var(--radius);
+  padding: 0;
+  width: min(92vw, 480px);
+  background: var(--glass);
+  color: var(--ink);
+  box-shadow: 0 24px 60px rgba(47, 41, 55, 0.25);
+}
+dialog.contact::backdrop { background: rgba(47, 41, 55, 0.45); }
+dialog.contact form { padding: 30px 30px 26px; }
+dialog.contact h2 { font-size: 24px; margin: 0 0 10px; }
+dialog.contact p { font-size: 14px; color: var(--muted); }
+dialog.contact .addr {
+  margin: 20px 0 14px;
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 10px 10px 10px 16px;
+}
+dialog.contact .addr code { font-family: inherit; font-size: 15px; color: var(--ink); flex: 1; word-break: break-all; }
+dialog.contact .addr .pill { padding: 9px 16px; font-size: 13px; }
+dialog.contact .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 18px; }
+dialog.contact .row a { color: var(--ink); font-size: 14px; }
+
+/* ---------- Document pages (support, privacy, deletion, opt-out) ---------- */
+.doc { max-width: 760px; margin: 0 auto; padding: 52px 24px 64px; }
+.doc h1 { font-size: clamp(30px, 4vw, 40px); line-height: 1.15; margin: 0 0 8px; text-wrap: balance; }
+.doc .date { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin: 0 0 28px; }
+.doc h1 + p:not(.date) { margin-top: 24px; }
+.doc h2 { font-size: 24px; line-height: 1.25; margin: 44px 0 10px; }
+.doc h3 { font-size: 19px; margin: 26px 0 8px; }
+.doc p { margin: 0 0 12px; font-size: 15px; color: var(--ink-soft); }
+.doc p.lead { font-size: 17px; color: var(--muted); }
+.doc ul, .doc ol { margin: 0 0 14px; padding-left: 22px; }
+.doc ul { list-style: disc; }
+.doc ol { list-style: decimal; }
+.doc li { margin-bottom: 7px; font-size: 15px; color: var(--ink-soft); }
+.doc li::marker { color: var(--primary); }
+.doc a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+.doc a:hover { text-decoration-color: var(--ink); }
+.doc strong { color: var(--ink); font-weight: 600; }
+.doc code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85em; background: rgba(255,255,255,0.6); border: 1px solid var(--line); padding: 1px 6px; border-radius: 6px; }
+.callout {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.callout.dark { background: var(--ink); border-color: var(--ink); }
+.callout.dark, .callout.dark p, .callout.dark li, .callout.dark strong { color: var(--on-dark); }
+.callout.dark strong { color: #fff; }
+.callout.dark a { color: #fff; }
+.callout > :last-child { margin-bottom: 0; }
+.callout p strong:first-child { display: block; margin-bottom: 4px; font-weight: 400; font-size: 17px; }
