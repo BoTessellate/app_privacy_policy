@@ -47,15 +47,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
 /* ---------- Wordmark + nav ---------- */
-.wordmark {
-  font-family: var(--serif);
-  font-size: 34px;
-  line-height: 1;
-  letter-spacing: 0.12em;
-  text-transform: lowercase;
-  color: var(--ink);
-  text-decoration: none;
-}
+/* The wordmark is the app's own mark (assets/wordmark.svg, ink fill). */
+.wordmark { display: inline-block; line-height: 0; text-decoration: none; }
+.wordmark img { height: 44px; width: auto; display: block; }
+.foot .wordmark img { height: 34px; }
+button.pill { border: 0; font: inherit; font-size: 15px; cursor: pointer; }
+button.ghost { background: none; border: 0; border-bottom: 1px solid var(--line); font: inherit; cursor: pointer; }
 .nav {
   position: sticky; top: 0; z-index: 10;
   background: rgba(230, 228, 233, 0.85);
@@ -79,10 +76,65 @@ ul { margin: 0; padding: 0; list-style: none; }
   .nav-links .hide-sm { display: none; }
 }
 @media (max-width: 560px) {
-  /* Wordmark + CTA only; the hero and footer carry the shopper/brand cross-links. */
   .nav-links a:not(.pill) { display: none; }
-  .wordmark { font-size: 28px; }
+  .wordmark img { height: 36px; }
 }
+
+/* ---------- Contact sheet (replaces bare mailto: CTAs) ---------- */
+dialog.contact {
+  border: 0;
+  border-radius: var(--radius);
+  padding: 0;
+  width: min(92vw, 480px);
+  background: var(--glass);
+  color: var(--ink);
+  box-shadow: 0 24px 60px rgba(47, 41, 55, 0.25);
+}
+dialog.contact::backdrop { background: rgba(47, 41, 55, 0.45); }
+dialog.contact form { padding: 32px 32px 28px; }
+dialog.contact h2 { font-size: 26px; margin: 0 0 10px; }
+dialog.contact p { font-size: 15px; color: var(--muted); }
+dialog.contact .addr {
+  margin: 20px 0 14px;
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 10px 10px 10px 16px;
+}
+dialog.contact .addr code { font-family: var(--sans); font-size: 16px; color: var(--ink); flex: 1; word-break: break-all; }
+dialog.contact .addr .pill { padding: 9px 16px; font-size: 14px; }
+dialog.contact .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 18px; }
+dialog.contact .row a { color: var(--ink); }
+
+/* ---------- Document pages (support, privacy, deletion, opt-out) ---------- */
+.doc { max-width: 760px; margin: 0 auto; padding: 56px 24px 72px; }
+.doc h1 { font-size: clamp(32px, 4.5vw, 44px); line-height: 1.15; margin: 0 0 10px; text-wrap: balance; }
+.doc .date { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin: 0 0 32px; }
+.doc h2 { font-size: 26px; line-height: 1.25; margin: 48px 0 12px; }
+.doc h3 { font-size: 20px; margin: 28px 0 8px; }
+.doc p { margin: 0 0 14px; font-size: 16px; color: var(--ink-soft); }
+.doc p.lead { font-size: 19px; color: var(--muted); }
+.doc ul, .doc ol { margin: 0 0 16px; padding-left: 22px; }
+.doc ul { list-style: disc; }
+.doc ol { list-style: decimal; }
+.doc li { margin-bottom: 8px; font-size: 16px; color: var(--ink-soft); }
+.doc li::marker { color: var(--primary); }
+.doc a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+.doc a:hover { text-decoration-color: var(--ink); }
+.doc strong { color: var(--ink); font-weight: 600; }
+.doc code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; background: rgba(255,255,255,0.6); border: 1px solid var(--line); padding: 1px 6px; border-radius: 6px; }
+.callout {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  margin: 22px 0;
+}
+.callout.dark { background: var(--ink); border-color: var(--ink); }
+.callout.dark, .callout.dark p, .callout.dark li, .callout.dark strong { color: var(--on-dark); }
+.callout.dark strong { color: #fff; }
+.callout.dark a { color: #fff; }
+.callout > :last-child { margin-bottom: 0; }
+.callout p strong:first-child { display: block; margin-bottom: 4px; font-family: var(--serif); font-weight: 400; font-size: 18px; }
 
 /* ---------- Buttons ---------- */
 .pill {

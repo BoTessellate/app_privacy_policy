@@ -1,62 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alate - Brand Opt-Out</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 24px 16px;
-            color: #222;
-            line-height: 1.6;
-            background: #fafafa;
-        }
-        h1 { font-size: 1.8em; margin-bottom: 4px; }
-        h2 { font-size: 1.3em; margin-top: 32px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
-        .date { color: #666; font-size: 0.9em; margin-bottom: 24px; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 6px; }
-        a { color: #4a6cf7; }
-        .highlight { background: #fff3cd; padding: 12px 16px; border-radius: 6px; margin: 16px 0; }
-        .note { background: #e8f4f8; padding: 12px 16px; border-radius: 6px; margin: 16px 0; font-size: 0.95em; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alate — Brand Opt-Out</title>
+<meta name="description" content="Ask Alate not to read your storefront's product pages. Honoured within 24 hours, no justification needed.">
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="stylesheet" href="assets/alate.css">
 </head>
 <body>
-    <h1>Brand Opt-Out Request</h1>
-    <p class="date">Alate by Bits of Tessellate</p>
 
-    <p>If you operate a storefront and prefer Alate not to scrape your site, let us know. We will add your origin to our blocklist and stop requesting product pages from it.</p>
+<header class="nav">
+  <div class="wrap">
+    <span class="wordmark"><img src="assets/wordmark.svg" alt="alate"></span>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
 
-    <h2>How It Works</h2>
-    <ul>
-        <li>Alate fetches public product pages only when a user explicitly pastes or shares the URL.</li>
-        <li>We identify ourselves with the User-Agent <code>Alate/1.0 (+https://tessellate.co.in/alate/brand-optout.html)</code>.</li>
-        <li>We respect <code>robots.txt</code>: if your file disallows our path, we bail automatically.</li>
-        <li>We do not redistribute scraped data. Product information is shown only to the user who requested it, alongside a "View on Store" link back to your storefront.</li>
-        <li>If you want to opt out anyway — no justification required — send us the request below and we'll honour it within 24 hours.</li>
-    </ul>
+<main class="doc">
+  <h1>Brand Opt-Out Request</h1>
+  <p class="date">Alate by Tessellate Studio</p>
 
-    <h2>Request Removal</h2>
-    <p>Email us with:</p>
-    <ul>
-        <li>Your store's origin (e.g. <code>yourstore.com</code>)</li>
-        <li>A brief note if you'd like to tell us why (optional)</li>
-        <li>Your name and role (so we can confirm the request is from someone authorised)</li>
-    </ul>
-    <p><strong>Email:</strong> <a href="mailto:privacy@tessellate.co.in?subject=Alate%20Brand%20Opt-Out%20Request">privacy@tessellate.co.in</a></p>
+  <p class="lead">If you operate a storefront and prefer Alate not to read your site, let us know. We will add your origin to our blocklist and stop requesting product pages from it.</p>
 
-    <div class="highlight">
-        <strong>What happens next:</strong> We add your origin to our blocklist within 24 hours. Any user who pastes a URL from your store will see a "This brand has asked not to be scraped — please visit their store directly" card instead of a fit analysis. Users can still reach you by tapping through to your storefront.
+  <h2>How it works</h2>
+  <ul>
+    <li>Alate fetches public product pages only when a user explicitly pastes or shares the URL.</li>
+    <li>We identify ourselves with the User-Agent <code>Alate/1.0 (+https://tessellate.co.in/alate/brand-optout.html)</code>.</li>
+    <li>We respect <code>robots.txt</code>: if your file disallows our path, we bail automatically.</li>
+    <li>We do not redistribute scraped data. Product information is shown only to the user who requested it, alongside a "View on Store" link back to your storefront.</li>
+    <li>If you want to opt out anyway — no justification required — send us the request below and we'll honour it within 24 hours.</li>
+  </ul>
+
+  <h2>Request removal</h2>
+  <p>Email us with:</p>
+  <ul>
+    <li>Your store's origin (e.g. <code>yourstore.com</code>)</li>
+    <li>A brief note if you'd like to tell us why (optional)</li>
+    <li>Your name and role (so we can confirm the request is from someone authorised)</li>
+  </ul>
+  <div class="callout">
+    <p><strong>Email</strong><a href="mailto:privacy@tessellate.co.in?subject=Alate%20Brand%20Opt-Out%20Request">privacy@tessellate.co.in</a></p>
+  </div>
+
+  <div class="callout dark">
+    <p><strong>What happens next</strong>We add your origin to our blocklist within 24 hours. Any user who pastes a URL from your store will see a "This brand has asked not to be read — please visit their store directly" card instead of a fit analysis. Users can still reach you by tapping through to your storefront.</p>
+  </div>
+
+  <h2>Partnership alternative</h2>
+  <p>If you'd rather integrate with Alate — sharing your size charts and fit data through a consented partnership so your customers get accurate fit predictions — we'd love to talk.</p>
+  <div class="callout">
+    <p><strong>Partnerships</strong><a href="mailto:partners@tessellate.co.in?subject=Alate%20Partnership%20Inquiry">partners@tessellate.co.in</a></p>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <span class="wordmark"><img src="assets/wordmark.svg" alt="alate"></span>
+      <p class="tag">Know it fits before you buy. Alate is made by Tessellate Studio.</p>
     </div>
-
-    <h2>Partnership Alternative</h2>
-    <p>If you'd rather integrate with Alate — sharing your size charts and product data through a consented partnership so your customers get accurate fit predictions — we'd love to talk. The same email works: <a href="mailto:privacy@tessellate.co.in?subject=Alate%20Partnership%20Inquiry">privacy@tessellate.co.in</a>.</p>
-
-    <div class="note">
-        <strong>Design note:</strong> This page will be redesigned in a future release to match the Alate app's visual identity.
+    <div>
+      <p class="foot-h">Help</p>
+      <ul>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy-policy.html">Privacy policy</a></li>
+        <li><a href="delete-account.html">Delete your data</a></li>
+        <li><a href="brand-optout.html">Brand opt-out</a></li>
+      </ul>
     </div>
+    <div>
+      <p class="foot-h">Contact</p>
+      <ul>
+        <li><a href="mailto:privacy@tessellate.co.in">privacy@tessellate.co.in</a></li>
+        <li><a href="mailto:partners@tessellate.co.in">partners@tessellate.co.in</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
