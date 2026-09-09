@@ -23,7 +23,7 @@
 
 <main class="doc">
   <h1>Privacy Policy</h1>
-  <p class="date">Version 1 · Effective September 2, 2026</p>
+  <p class="date">Version 2 · Effective September 9, 2026</p>
 
   <p>Alate ("we", "our", "the app") is a mobile application developed by <strong>Tessellate Studio</strong> that helps you predict whether clothing items will fit based on your body profile. This policy explains what data we collect, how we use it, and your rights.</p>
 
@@ -44,13 +44,16 @@
 
   <h3>d) Device Identifier</h3>
   <p>On first launch, the app generates a random UUID stored locally and includes it as an <code>X-Device-Id</code> header on backend requests. This identifier is used solely for rate-limiting (to prevent abuse) and is not linked to your identity, name, email, or body profile. It is regenerated if you reinstall the app.</p>
+  <p>Our crash-reporting tools generate a <strong>second, separate</strong> per-install identifier of their own, described in section 2(f). Neither identifier is tied to your name, email or account, and neither is an advertising ID.</p>
 
   <h3>e) Google Account and Cloud Sync (optional)</h3>
   <p>If you choose to sign in with Google on the Account screen, we receive your email address and profile name via Supabase Auth. <strong>Sign-in is optional.</strong> Your body profile, fit history, and calibration work fully without an account.</p>
   <p>Signing in turns on cloud sync. The following are stored in your account in our database (Supabase) and pulled to any device you sign in on: your body profile, exact measurements if you entered them, your budget range, your fit-calibration garments, and your most recent fit checks (up to 50). Signing out clears them from that device; the account copy stays until you delete the account (section 7). Synced data is protected by row-level security so only your signed-in session can read or write it, and it is never used for any purpose other than restoring your own profile.</p>
 
   <h3>f) Crash Reports</h3>
-  <p>We use <strong>Sentry</strong> and <strong>Firebase Crashlytics</strong> to collect crash reports and performance traces. These include stack traces, device model, OS version, and a random session identifier. <strong>No body profile data, URLs, or account details are included in crash reports.</strong> Crash data helps us fix bugs and is retained for 90 days.</p>
+  <p>We use <strong>Sentry</strong> and <strong>Firebase Crashlytics</strong> to collect crash reports and performance traces. These include stack traces, device model, OS version, app version, and a <strong>random identifier that stays the same for as long as the app is installed</strong>. That identifier is what lets us tell one person hitting a bug fifty times from fifty people hitting it once — it is not tied to your name, email, account or body profile, and it is regenerated if you reinstall.</p>
+  <p><strong>No body profile data, account details, or the addresses of products you look at are included in crash reports.</strong> Where a crash report needs to name a website, it records only the site (for example <code>assets.example.com</code>) and never the full address, because the rest of the address would reveal the specific item you were viewing.</p>
+  <p>We do not collect your location. Crash reports previously carried an approximate country inferred from your IP address; as of September 2026 we strip that before the report is sent and instruct our provider not to store IP addresses. Crash data helps us fix bugs and is retained for 90 days.</p>
 
   <h3>g) Brand Request Data (server-side)</h3>
   <p>If you paste a URL from a brand we don't yet support, the URL and brand domain are recorded in our backend so we can prioritise which storefronts to onboard next. We do <strong>not</strong> contact the brand on your behalf, and your body profile is never associated with the request.</p>
@@ -147,7 +150,7 @@
     <li><strong>Right to opt-out of sale/sharing</strong>: we do not sell or share personal information.</li>
     <li><strong>Right to non-discrimination</strong>: we will not penalise you for exercising your rights.</li>
   </ul>
-  <p><strong>Categories collected:</strong> Identifiers (email, name — only if you sign in via Google); physical characteristics (body profile and measurements — on your device, and in your account only if you sign in); Sensory/Geolocation — none; Internet activity (product URLs, ephemeral; fit history — on your device, and in your account only if you sign in); random device identifier (rate-limiting only).</p>
+  <p><strong>Categories collected:</strong> Identifiers (email, name — only if you sign in via Google); physical characteristics (body profile and measurements — on your device, and in your account only if you sign in); Sensory/Geolocation — none; Internet activity (product URLs, ephemeral; fit history — on your device, and in your account only if you sign in); random per-install identifiers (one for rate-limiting, one for grouping crash reports — see sections 2(d) and 2(f)).</p>
 
   <h2>11. Indian Residents (DPDP Act 2023)</h2>
   <p><strong>Data Fiduciary:</strong> Tessellate Studio. Contact: <a href="mailto:privacy@tessellate.co.in">privacy@tessellate.co.in</a>.</p>
@@ -162,7 +165,7 @@
   <h2>13. App Store Privacy Details</h2>
   <p><strong>Tracking:</strong> Alate does not track you across other companies' apps or websites. We do not use the IDFA or any device advertising identifier.</p>
   <p><strong>Data linked to you:</strong> Email address and name (only if you sign in via Google). Body profile, measurements, budget range, calibration garments and fit history (only if you sign in — synced to your account). Brand-request notify email (only if you opt in to "notify me when added"; held for up to 30 days after the notification is sent).</p>
-  <p><strong>Data not linked to you:</strong> Body profile and fit history when you are not signed in (stored on your device; the profile is sent to our backend transiently for each fit check and discarded), product URLs from successful reads (ephemeral), unsupported-brand URL + brand domain (anonymised demand signal when no notify email is provided), device identifier (rate-limiting only), crash reports (PII-scrubbed).</p>
+  <p><strong>Data not linked to you:</strong> Body profile and fit history when you are not signed in (stored on your device; the profile is sent to our backend transiently for each fit check and discarded), product URLs from successful reads (ephemeral), unsupported-brand URL + brand domain (anonymised demand signal when no notify email is provided), device identifier (rate-limiting only). Crash reports carry a persistent per-install identifier so that repeat crashes can be counted as one device rather than many; that identifier is not tied to your name, email or account.</p>
   <p><strong>Data used to track you:</strong> None.</p>
 
   <h2>14. Changes to This Policy</h2>
