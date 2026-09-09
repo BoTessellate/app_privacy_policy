@@ -67,6 +67,10 @@
 
   <h3>j) Restock Alerts (optional, email waitlist)</h3>
   <p>If your recommended size is sold out, you may ask to be emailed when it returns. If you opt in, we store your email address, the product URL, and the size — solely to send that back-in-stock notification. Stock is re-checked against the live store; we never store the merchant's inventory. The email is never used for marketing, and you can unsubscribe from any alert email.</p>
+  <p>The product URL is kept for two reasons and no others: it is the page we re-check to see whether your size has come back, and it is the link in the notification that takes you to the store. It is deleted with the rest of the alert once the notification is sent or you unsubscribe.</p>
+
+  <h3>k) Push Notification Token (optional)</h3>
+  <p>If you allow notifications, your device is issued a push token by Expo’s push service, and we store it so a restock alert can reach you on the device that asked for it. The row holds the token, the random device identifier from section 2(d), your account id if you are signed in, and whether the device is iOS or Android — nothing else. It is used only to deliver alerts you asked for, never for marketing, and it is revoked when you turn notifications off. Email remains the guaranteed channel; push is an addition to it, not a replacement.</p>
 
   <h2>2. Age Requirement</h2>
   <p>Alate is intended for users aged <strong>16 or older</strong>. On first launch, the app asks you to confirm your age. If you indicate you're under 16, the app will not collect body profile data from you. Users under 16 who circumvent the age gate by providing inaccurate information are not our intended audience; we will promptly delete any data we discover was collected from someone under 16.</p>
@@ -92,6 +96,7 @@
     <li><strong>Google Sign-In via Supabase Auth</strong> (optional) — authentication only, if you choose to sign in. <a href="https://policies.google.com/privacy">Privacy Policy</a></li>
     <li><strong>Sentry</strong> — crash reporting, PII-scrubbed. <a href="https://sentry.io/privacy/">Privacy Policy</a></li>
     <li><strong>Firebase Crashlytics</strong> — native crash reporting, PII-scrubbed. <a href="https://firebase.google.com/support/privacy">Privacy Policy</a></li>
+    <li><strong>Expo push notifications</strong> — delivers restock alerts to your device. <a href="https://expo.dev/privacy">Privacy Policy</a></li>
     <li><strong>Resend</strong> — sends transactional email only (the single restock-alert notification you opt into, section 1j). It receives just the email address needed to deliver that message. <a href="https://resend.com/legal/privacy-policy">Privacy Policy</a></li>
   </ul>
   <p>No personal data is sold to any party. We have not sold personal information in the preceding 12 months.</p>
@@ -117,6 +122,7 @@
     <li><strong>Shared measurement snapshots</strong> are deleted automatically when the link you chose expires (1 week to 3 months), and can be revoked earlier on request.</li>
     <li><strong>Measurement-sheet photos</strong> are never stored — the image is read once and discarded.</li>
     <li><strong>Restock-alert entries</strong> (email, product URL, size) are deleted once the notification is sent or you unsubscribe, whichever is sooner.</li>
+    <li><strong>Push notification tokens</strong> are kept while notifications are enabled and revoked when you turn them off or uninstall the app.</li>
   </ul>
 
   <h2>7. Your Rights</h2>
@@ -150,7 +156,7 @@
     <li><strong>Right to opt-out of sale/sharing</strong>: we do not sell or share personal information.</li>
     <li><strong>Right to non-discrimination</strong>: we will not penalise you for exercising your rights.</li>
   </ul>
-  <p><strong>Categories collected:</strong> Identifiers (email, name — only if you sign in via Google); physical characteristics (body profile and measurements — on your device, and in your account only if you sign in); Sensory/Geolocation — none; Internet activity (product URLs, ephemeral; fit history — on your device, and in your account only if you sign in); random per-install identifiers (one for rate-limiting, one for grouping crash reports — see sections 2(d) and 2(f)).</p>
+  <p><strong>Categories collected:</strong> Identifiers (email, name — only if you sign in via Google); physical characteristics (body profile and measurements — on your device, and in your account only if you sign in); Sensory/Geolocation — none; Internet activity (product URLs are ephemeral, with one exception — a restock alert keeps the product URL until the notification is sent, section 2(j); fit history — on your device, and in your account only if you sign in); random per-install identifiers (one for rate-limiting, one for grouping crash reports, and a push token if you enable notifications — see sections 2(d), 2(f) and 2(k)).</p>
 
   <h2>11. Indian Residents (DPDP Act 2023)</h2>
   <p><strong>Data Fiduciary:</strong> Tessellate Studio. Contact: <a href="mailto:privacy@tessellate.co.in">privacy@tessellate.co.in</a>.</p>
@@ -164,8 +170,8 @@
 
   <h2>13. App Store Privacy Details</h2>
   <p><strong>Tracking:</strong> Alate does not track you across other companies' apps or websites. We do not use the IDFA or any device advertising identifier.</p>
-  <p><strong>Data linked to you:</strong> Email address and name (only if you sign in via Google). Body profile, measurements, budget range, calibration garments and fit history (only if you sign in — synced to your account). Brand-request notify email (only if you opt in to "notify me when added"; held for up to 30 days after the notification is sent).</p>
-  <p><strong>Data not linked to you:</strong> Body profile and fit history when you are not signed in (stored on your device; the profile is sent to our backend transiently for each fit check and discarded), product URLs from successful reads (ephemeral), unsupported-brand URL + brand domain (anonymised demand signal when no notify email is provided), device identifier (rate-limiting only). Crash reports carry a persistent per-install identifier so that repeat crashes can be counted as one device rather than many; that identifier is not tied to your name, email or account.</p>
+  <p><strong>Data linked to you:</strong> Email address and name (only if you sign in via Google). Body profile, measurements, budget range, calibration garments and fit history (only if you sign in — synced to your account). Brand-request notify email (only if you opt in to "notify me when added"; held for up to 30 days after the notification is sent). Restock alerts (your email, the product URL and the size, until the notification is sent or you unsubscribe). Our per-install identifiers — the rate-limiting id, the crash-grouping id, and the push token — are treated as linked to you, because when you are signed in the push-token record holds your account id in the same row. Crash reports are treated as linked for the same reason, even though they carry no name, email or account details themselves.</p>
+  <p><strong>Data not linked to you:</strong> Body profile and fit history when you are not signed in (stored on your device; the profile is sent to our backend transiently for each fit check and discarded), product URLs from successful reads (ephemeral), unsupported-brand URL + brand domain (anonymised demand signal when no notify email is provided), and the anonymised unsupported-brand demand signal.</p>
   <p><strong>Data used to track you:</strong> None.</p>
 
   <h2>14. Changes to This Policy</h2>
